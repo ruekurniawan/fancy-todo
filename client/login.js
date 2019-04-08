@@ -1,12 +1,14 @@
 let baseUrl = 'http://localhost:3000'
 
 $('#main-content').hide()
+$('#logout').hide()
 $('#button-log').click(function () {
   event.preventDefault();
   isGuest()
 })
 
 if (localStorage.getItem('token')) {
+ 
   isLogin()
 }
 
@@ -22,6 +24,8 @@ function isLogin() {
   })
     .done(response => {
       fetchData()
+      $('#login').hide()
+      $('#logout').show()
       $('#main-content').show()
       $('#button-log').hide()
       $('#update-todo').hide()

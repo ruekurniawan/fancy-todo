@@ -1,6 +1,8 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const { compare } = require('../helpers/bcrypt')
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client(process.env.CLIENT_ID);
 
 class UserController {
   static createUser(req, res) {
